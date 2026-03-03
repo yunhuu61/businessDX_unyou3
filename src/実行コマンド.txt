@@ -1,0 +1,13 @@
+コマンドプロンプトまたは PowerShell で以下を実行:
+
+
+cd c:\dev\businessDX_unyou3
+& "C:\Program Files\Python\Python312\python.exe" main.py
+PDF分割だけ動かしたい場合:
+
+
+& "C:\Program Files\Python\Python312\python.exe" main.py --pdf
+Excel分析だけ動かしたい場合:
+
+
+& "C:\Program Files\Python\Python312\python.exe" main.py --excel

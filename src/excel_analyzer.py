@@ -187,13 +187,14 @@ def save_excel_outputs(
 
 def process_excel(
     excel_path: Path,
+    output_yyyymm: str | None,
     classification_table: str,
     prompt_template: str,
     output_dir: Path,
     client: genai.Client,
     model_name: str,
 ) -> dict:
-    yyyymm = extract_yyyymm_from_filename(excel_path.name)
+    yyyymm = output_yyyymm or extract_yyyymm_from_filename(excel_path.name)
     dataframe = pd.read_excel(excel_path)
 
     results: list[dict] = []
@@ -253,6 +254,7 @@ def process_excel(
 def run(
     input_dir: str,
     output_dir: str,
+    output_yyyymm: str | None,
     classification_csv_path: str,
     api_key: str,
     model_name: str = DEFAULT_MODEL_NAME,
@@ -290,6 +292,7 @@ def run(
         try:
             summary = process_excel(
                 excel_path=xlsx_file,
+                output_yyyymm=output_yyyymm,
                 classification_table=classification_table,
                 prompt_template=prompt_template,
                 output_dir=output_path,

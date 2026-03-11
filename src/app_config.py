@@ -10,6 +10,7 @@ from pathlib import Path
 class AppConfig:
     input_dir: str
     output_dir: str
+    run_yyyymm: str | None = None
     classification_csv_path: str | None = None
     gemini_api_key: str | None = None
     model_name: str = "gemini-2.0-flash"

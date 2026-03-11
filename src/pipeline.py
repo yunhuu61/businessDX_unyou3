@@ -56,6 +56,7 @@ def run_pipeline(config: AppConfig) -> dict:
         results["excel"] = excel_analyzer.run(
             input_dir=str(config.input_path),
             output_dir=str(config.excel_output_path),
+            output_yyyymm=config.run_yyyymm,
             classification_csv_path=config.classification_csv_path or "",
             api_key=config.gemini_api_key or "",
             model_name=config.model_name,

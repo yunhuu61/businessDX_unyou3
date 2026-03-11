@@ -17,6 +17,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output", default="output", help="Output base directory path.")
     parser.add_argument("--classification-csv", required=False, help="Path to classification CSV.")
     parser.add_argument("--api-key", required=False, help="Gemini API key.")
+    parser.add_argument("--run-yyyymm", required=False, help="Run month in yyyymm format.")
     parser.add_argument("--model-name", default="gemini-2.0-flash", help="Gemini model name.")
     parser.add_argument("--prompt-path", required=False, help="Path to prompt template.")
     return parser.parse_args()
@@ -33,6 +34,7 @@ def main() -> None:
     config = AppConfig(
         input_dir=args.input,
         output_dir=args.output,
+        run_yyyymm=args.run_yyyymm,
         classification_csv_path=args.classification_csv,
         gemini_api_key=args.api_key,
         model_name=args.model_name,

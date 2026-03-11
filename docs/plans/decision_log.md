@@ -48,3 +48,7 @@
 - Google Drive のルートは `businessDX` に統一した
 - 分類マスタは `MyDrive/businessDX/setting/分類.csv` を参照する
 - 出力は `MyDrive/businessDX/Output/{yyyyMM}` に保存する
+
+### 2026-03-12 出力ファイル名ルール変更
+- Excel 出力ファイル名は元ファイル名ではなく、入力した `yyyymm` を使う
+- 出力名は `{yyyymm}_index_DLver.xlsx` と `{yyyymm}_index_full.xlsx` に統一した

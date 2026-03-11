@@ -45,6 +45,7 @@
 - Colab 実行確認は未実施
 - Gemini 実 API 呼び出し確認は未実施
 - Notebook の事前入力チェックは実装済み
+- Excel 出力ファイル名は入力した `yyyymm` を優先する実装に変更済み
 
 ## 次のアクション
 1. Colab で Notebook を起動する

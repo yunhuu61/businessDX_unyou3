@@ -1,13 +1,12 @@
-コマンドプロンプトまたは PowerShell で以下を実行:
+PowerShellで実行
 
+cd C:\dev\businessDX_unyou3
 
-cd c:\dev\businessDX_unyou3
-& "C:\Program Files\Python\Python312\python.exe" main.py
-PDF分割だけ動かしたい場合:
+# PDF + Excel（両方）
+& ".\.venv\Scripts\python.exe" .\src\main.py --input .\src\input --output .\src\output
 
+# PDFのみ
+& ".\.venv\Scripts\python.exe" .\src\main.py --pdf --input .\src\input --output .\src\output
 
-& "C:\Program Files\Python\Python312\python.exe" main.py --pdf
-Excel分析だけ動かしたい場合:
-
-
-& "C:\Program Files\Python\Python312\python.exe" main.py --excel
+# Excelのみ
+& ".\.venv\Scripts\python.exe" .\src\main.py --excel --input .\src\input --output .\src\output

@@ -1,71 +1,54 @@
-"""businessDX_unyou リニューアル - 統合エントリポイント
+"""CLI entry point for the businessDX pipeline."""
 
-処理1（PDF分割）と処理2（Excel企業分析）を順番に実行する。
-
-使い方:
-    python main.py          # 両方実行
-    python main.py --pdf    # PDF分割のみ
-    python main.py --excel  # Excel分析のみ
-"""
+from __future__ import annotations
 
 import argparse
-import sys
 import time
-from pathlib import Path
 
-import pdf_splitter
-import excel_analyzer
+from app_config import AppConfig
+from pipeline import run_pipeline
 
 
-def main():
-    parser = argparse.ArgumentParser(description="企業紹介PDF処理ツール")
-    parser.add_argument("--pdf", action="store_true", help="PDF分割のみ実行")
-    parser.add_argument("--excel", action="store_true", help="Excel分析のみ実行")
-    parser.add_argument("--input", default="input", help="入力ディレクトリ（デフォルト: input）")
-    parser.add_argument("--output", default="output", help="出力ベースディレクトリ（デフォルト: output）")
-    args = parser.parse_args()
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Run the PDF split and Excel analysis pipeline.")
+    parser.add_argument("--pdf", action="store_true", help="Run only PDF splitting.")
+    parser.add_argument("--excel", action="store_true", help="Run only Excel analysis.")
+    parser.add_argument("--input", default="input", help="Input directory path.")
+    parser.add_argument("--output", default="output", help="Output base directory path.")
+    parser.add_argument("--classification-csv", required=False, help="Path to classification CSV.")
+    parser.add_argument("--api-key", required=False, help="Gemini API key.")
+    parser.add_argument("--model-name", default="gemini-2.0-flash", help="Gemini model name.")
+    parser.add_argument("--prompt-path", required=False, help="Path to prompt template.")
+    return parser.parse_args()
 
+
+def main() -> None:
+    args = parse_args()
     run_pdf = not args.excel or args.pdf
     run_excel = not args.pdf or args.excel
-
     if args.pdf and args.excel:
         run_pdf = True
         run_excel = True
 
-    input_dir = args.input
-    output_base = args.output
+    config = AppConfig(
+        input_dir=args.input,
+        output_dir=args.output,
+        classification_csv_path=args.classification_csv,
+        gemini_api_key=args.api_key,
+        model_name=args.model_name,
+        prompt_path=args.prompt_path,
+        run_pdf=run_pdf,
+        run_excel=run_excel,
+    )
 
     print("=" * 60)
-    print("企業紹介PDF処理ツール")
+    print("businessDX pipeline")
     print("=" * 60)
-
-    start_time = time.time()
-
-    if run_pdf:
-        print()
-        print("-" * 40)
-        print("処理1: PDF分割")
-        print("-" * 40)
-        pdf_result = pdf_splitter.run(
-            input_dir=input_dir,
-            output_dir=str(Path(output_base) / "pdfs"),
-        )
-
-    if run_excel:
-        print()
-        print("-" * 40)
-        print("処理2: Excel企業分析")
-        print("-" * 40)
-        excel_result = excel_analyzer.run(
-            input_dir=input_dir,
-            output_dir=str(Path(output_base) / "index"),
-        )
-
-    elapsed = time.time() - start_time
-
-    print()
+    start = time.time()
+    run_pipeline(config)
+    elapsed = time.time() - start
     print("=" * 60)
-    print(f"全処理完了（{elapsed:.1f} 秒）")
+    print(f"Completed in {elapsed:.1f}s")
     print("=" * 60)
 
 

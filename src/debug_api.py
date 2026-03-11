@@ -1,57 +1,44 @@
-import os
-from pathlib import Path
-from dotenv import load_dotenv
+"""Small utility to verify a Gemini API key at runtime."""
+
+from __future__ import annotations
+
+import argparse
+
 from google import genai
 
-def test_api():
-    # Load .env
-    env_path = Path(__file__).parent / ".env"
-    print(f"Loading .env from: {env_path}")
-    
-    if not env_path.exists():
-        print(f"ERROR: .env file not found at {env_path}")
-        return
 
-    load_dotenv(env_path)
-    
-    api_key = os.getenv("GOOGLE_API_KEY")
-    
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Test a Gemini API key.")
+    parser.add_argument("--api-key", required=True, help="Gemini API key to test.")
+    parser.add_argument("--model-name", default="gemini-2.0-flash", help="Gemini model name.")
+    return parser.parse_args()
+
+
+def test_api(api_key: str, model_name: str) -> int:
+    api_key = api_key.strip()
     if not api_key:
-        print("ERROR: GOOGLE_API_KEY not found in .env")
-        # Print all keys to see what's there (safely)
-        print("Available env vars keys:", list(os.environ.keys()))
-        return
-        
-    print(f"API Key found: {api_key[:4]}...{api_key[-4:]} (Length: {len(api_key)})")
-    
-    # Check for whitespace issues
-    if api_key.strip() != api_key:
-        print("WARNING: API Key has leading/trailing whitespace!")
+        print("ERROR: --api-key is required.")
+        return 1
+
+    print(f"Testing model: {model_name}")
+    print(f"API key prefix: {api_key[:4]}...")
 
     try:
-        print("Initializing Client...")
         client = genai.Client(api_key=api_key)
-        
-        print("Testing API connection with model 'gemini-2.0-flash'...")
         response = client.models.generate_content(
-            model="gemini-2.0-flash",
-            contents="Hello, explain what an API is in 10 words.",
+            model=model_name,
+            contents="Reply with the single word: OK",
         )
-        print("\nAPI Call Successful!")
+        print("API call succeeded.")
         print(f"Response: {response.text}")
-        
-    except Exception as e:
-        print("\nAPI Call FAILED!")
-        print(f"Error Type: {type(e).__name__}")
-        print(f"Error Message: {e}")
-        
-        err_str = str(e)
-        if "429" in err_str:
-            print("-> DIAGNOSIS: Rate Limit Exceeded (Quota).")
-        elif "400" in err_str:
-            print("-> DIAGNOSIS: Bad Request (Invalid Key or Model).")
-        elif "401" in err_str or "403" in err_str:
-            print("-> DIAGNOSIS: Authentication/Permission Failed.")
+        return 0
+    except Exception as exc:  # pragma: no cover - network/API dependent
+        print("API call failed.")
+        print(f"Error type: {type(exc).__name__}")
+        print(f"Error message: {exc}")
+        return 1
+
 
 if __name__ == "__main__":
-    test_api()
+    arguments = parse_args()
+    raise SystemExit(test_api(arguments.api_key, arguments.model_name))

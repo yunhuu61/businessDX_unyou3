@@ -34,3 +34,8 @@
 - 公開前に Git 履歴から `src/.env`、`src/input/`、`src/output/`、`src/__pycache__/` を除去する
 - 履歴除去前にバックアップブランチを作成する
 - 履歴除去後は `origin/main` を force push する
+
+### 2026-03-11 履歴除去完了
+- `main` と `origin/main` の履歴から `src/.env`、`src/input/`、`src/output/`、`src/__pycache__/` を除去した
+- ローカルの古い参照と reflog も削除した
+- API キー失効と再発行はユーザー側で対応する前提にした

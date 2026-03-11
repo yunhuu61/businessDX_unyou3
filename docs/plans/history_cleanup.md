@@ -27,3 +27,11 @@
 - 履歴書き換えにより commit hash は変わる
 - 既存 clone は通常 pull で追従できなくなる
 - GitHub 上の古い commit 参照は無効になる
+
+## 実施結果
+- `main` の履歴から `src/.env` は除去済み
+- `main` の履歴から `src/input/` は除去済み
+- `main` の履歴から `src/output/` は除去済み
+- `main` の履歴から `src/__pycache__/` は除去済み
+- `origin/main` へ force push 実施済み
+- ローカルの `refs/original` と reflog も掃除済み

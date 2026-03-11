@@ -43,3 +43,8 @@
 ### 2026-03-11 利用マニュアル追加
 - 共用 Google アカウントでの利用を前提にした操作マニュアルを追加した
 - Google ログインから Colab 実行、API キー発行、`分類.csv` の保管場所まで記載した
+
+### 2026-03-11 Drive フォルダ統一
+- Google Drive のルートは `businessDX` に統一した
+- 分類マスタは `MyDrive/businessDX/setting/分類.csv` を参照する
+- 出力は `MyDrive/businessDX/Output/{yyyyMM}` に保存する

@@ -27,18 +27,18 @@
 
 ### 4.2 `分類.csv` の場所を確認する
 - `分類.csv` は Google Drive の次の場所に置く
-- `マイドライブ / businessDX_unyou / setting / 分類.csv`
+- `マイドライブ / businessDX / setting / 分類.csv`
 
 Google Drive 上の見え方:
 1. [Google Drive](https://drive.google.com/) を開く
 2. `マイドライブ` を開く
-3. `businessDX_unyou` フォルダを開く
+3. `businessDX` フォルダを開く
 4. `setting` フォルダを開く
 5. その中に `分類.csv` があることを確認する
 
 ## 5. `分類.csv` を変更したい場合
 - `分類.csv` を変更したい場合は、Google Drive 上の次の場所にあるファイルを直接編集または差し替える
-- `マイドライブ / businessDX_unyou / setting / 分類.csv`
+- `マイドライブ / businessDX / setting / 分類.csv`
 - Notebook 実行時は毎回この場所の最新ファイルを読む
 - 毎回アップロードし直す必要はない
 
@@ -168,15 +168,15 @@ Google Drive 上の見え方:
 
 ## 10. 出力ファイルの保存先
 - 出力は Google Drive の次の場所に保存される
-- `マイドライブ / businessDX / output / {yyyyMM} /`
+- `マイドライブ / businessDX / Output / {yyyyMM} /`
 
 保存先の例:
-- `マイドライブ / businessDX / output / 202603 / pdfs /`
-- `マイドライブ / businessDX / output / 202603 / index /`
+- `マイドライブ / businessDX / Output / 202603 / pdfs /`
+- `マイドライブ / businessDX / Output / 202603 / index /`
 
 ## 11. よくある質問
 ### 11.1 `Classification CSV not found` と出る
-- Google Drive の `マイドライブ / businessDX_unyou / setting / 分類.csv` にファイルがない
+- Google Drive の `マイドライブ / businessDX / setting / 分類.csv` にファイルがない
 - その場所に `分類.csv` を置いてから、セル 6 を再実行する
 
 ### 11.2 `No Excel files were uploaded` と出る

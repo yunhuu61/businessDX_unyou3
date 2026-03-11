@@ -111,8 +111,8 @@
 
 ### 8.2 推奨ディレクトリ例
 - 入力一時領域: Colab セッション上の一時ディレクトリ
-- 分類マスタ: `MyDrive/businessDX/config/分類.csv`
-- 出力先: `MyDrive/businessDX/output/{実行年月または実行日時}/`
+- 分類マスタ: `MyDrive/businessDX/setting/分類.csv`
+- 出力先: `MyDrive/businessDX/Output/{実行年月または実行日時}/`
 
 ## 9. 改修要件
 ### 9.1 必須改修
@@ -140,7 +140,7 @@
 ## 11. 懸念・確認したい点(回答済)
 - 出力フォルダ命名を「yyyyMM」基準にするか「実行日時」基準にするかは決めたい。[回答]yyyyMM基準
 - `分類.csv` の固定保存先パスは運用担当と合意が必要。
-[回答]businessDX_unyou>setting>分類.csv
+[回答]businessDX>setting>分類.csv
 - Colab 利用者に Google Drive へのアクセス権がある前提でよいか確認が必要。[回答]OK
 
 

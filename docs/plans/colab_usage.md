@@ -3,7 +3,7 @@
 ## 前提
 - Google Colab を使えること
 - Google Drive へアクセスできること
-- `分類.csv` が `MyDrive/businessDX_unyou/setting/分類.csv` に配置されていること
+- `分類.csv` が `MyDrive/businessDX/setting/分類.csv` に配置されていること
 - 月次 Excel と PDF を手元に持っていること
 - Gemini API キーを持っていること
 
@@ -18,7 +18,7 @@
 8. 実行対象の `yyyyMM` を入力する
 9. 実行対象を `PDF split` / `Excel analysis` から選ぶ
 10. パイプラインを実行する
-11. 結果を Google Drive の `MyDrive/businessDX/output/{yyyyMM}` で確認する
+11. 結果を Google Drive の `MyDrive/businessDX/Output/{yyyyMM}` で確認する
 
 ## 補足
 - API キーは Notebook や `.env` には保存しない

@@ -7,7 +7,7 @@
 ## 事前条件
 - Google Colab が利用できる
 - Google Drive にアクセスできる
-- `分類.csv` が `MyDrive/businessDX_unyou/setting/分類.csv` に存在する
+- `分類.csv` が `MyDrive/businessDX/setting/分類.csv` に存在する
 - テスト用 Excel と PDF を用意している
 - Gemini API キーを用意している
 
@@ -31,8 +31,8 @@
 ### 4. 入出力
 - アップロードした Excel が分析される
 - アップロードした PDF が分割される
-- 出力が `MyDrive/businessDX/output/{yyyyMM}/pdfs` に保存される
-- 出力が `MyDrive/businessDX/output/{yyyyMM}/index` に保存される
+- 出力が `MyDrive/businessDX/Output/{yyyyMM}/pdfs` に保存される
+- 出力が `MyDrive/businessDX/Output/{yyyyMM}/index` に保存される
 
 ### 5. ログとエラー
 - 実行サマリが Colab 上に表示される

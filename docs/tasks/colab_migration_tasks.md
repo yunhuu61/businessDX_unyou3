@@ -25,6 +25,7 @@
 | T015 | done | Colab Notebook の入力チェックと実行導線を補強する | `notebooks/run_businessdx_colab.ipynb` |
 | T016 | done | 公開前に秘密情報と業務ファイルを Git 履歴から除去する | `docs/plans/history_cleanup.md` |
 | T017 | done | 非IT利用者向けの Colab 操作マニュアルを作成する | `docs/manuals/colab_user_manual.md` |
+| T018 | done | Google Drive の設定フォルダと出力フォルダのルートを `businessDX` に統一する | `notebooks/run_businessdx_colab.ipynb` |
 
 ## 直近の実施順
 1. T009 Python 側の設定オブジェクトまたは設定関数を追加する

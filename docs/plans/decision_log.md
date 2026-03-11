@@ -29,3 +29,8 @@
 - `debug_api.py` も `.env` 前提を廃止し、実行時 API キー引数に統一した
 - README を Colab 運用前提の内容に更新した
 - 検証チェックリストを追加し、受け入れ確認の観点を固定化した
+
+### 2026-03-11 履歴除去方針
+- 公開前に Git 履歴から `src/.env`、`src/input/`、`src/output/`、`src/__pycache__/` を除去する
+- 履歴除去前にバックアップブランチを作成する
+- 履歴除去後は `origin/main` を force push する

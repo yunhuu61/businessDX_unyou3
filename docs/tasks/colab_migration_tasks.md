@@ -23,6 +23,7 @@
 | T013 | done | 利用手順ドキュメントを追加する | `docs/plans/colab_usage.md` |
 | T014 | doing | 動作確認手順を整理し、受け入れ条件に沿って検証する | `docs/plans/verification_checklist.md` |
 | T015 | done | Colab Notebook の入力チェックと実行導線を補強する | `notebooks/run_businessdx_colab.ipynb` |
+| T016 | doing | 公開前に秘密情報と業務ファイルを Git 履歴から除去する | `docs/plans/history_cleanup.md` |
 
 ## 直近の実施順
 1. T009 Python 側の設定オブジェクトまたは設定関数を追加する

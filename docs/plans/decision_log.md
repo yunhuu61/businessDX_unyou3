@@ -39,3 +39,7 @@
 - `main` と `origin/main` の履歴から `src/.env`、`src/input/`、`src/output/`、`src/__pycache__/` を除去した
 - ローカルの古い参照と reflog も削除した
 - API キー失効と再発行はユーザー側で対応する前提にした
+
+### 2026-03-11 利用マニュアル追加
+- 共用 Google アカウントでの利用を前提にした操作マニュアルを追加した
+- Google ログインから Colab 実行、API キー発行、`分類.csv` の保管場所まで記載した

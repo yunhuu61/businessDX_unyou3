@@ -7,6 +7,8 @@
   - 要件定義を置く
 - `docs/plans/`
   - 方針、決定事項、実施順序、作業メモを置く
+- `docs/manuals/`
+  - 利用者向けの操作マニュアルを置く
 - `docs/tasks/`
   - 開発タスク、進捗、未対応項目を置く
 
@@ -22,5 +24,6 @@
 - 実装設計: `docs/plans/colab_implementation_design.md`
 - 次ステップ: `docs/plans/next_steps.md`
 - 利用手順: `docs/plans/colab_usage.md`
+- 操作マニュアル: `docs/manuals/colab_user_manual.md`
 - 検証チェック: `docs/plans/verification_checklist.md`
 - タスク管理: `docs/tasks/colab_migration_tasks.md`
